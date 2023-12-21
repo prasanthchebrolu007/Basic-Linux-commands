@@ -1,0 +1,180 @@
+Basic Commands
+Below, you’ll find a list of fundamental Linux commands:
+
+ls: Lists the contents of a directory.
+
+Example: ls (lists the contents of the current directory)
+
+cd: Changes the current directory.
+
+Example: cd Documents (changes to the Documents directory)
+
+mkdir: Creates a new directory.
+
+Example: mkdir NewFolder (creates a directory named NewFolder)
+
+rmdir: Removes an empty directory.
+
+Example: rmdir NewFolder (removes the directory named NewFolder)
+
+touch: Creates a new, empty file.
+
+Example: touch myfile.txt (creates an empty file named myfile.txt)
+
+rm: Removes a file.
+
+Example: rm myfile.txt (removes the file named myfile.txt)
+
+cp: Copies a file or directory.
+
+Example: cp file1.txt file2.txt (copies file1.txt to file2.txt)
+
+mv: Moves or renames a file or directory.
+
+Example: mv oldfile.txt newfile.txt (renames oldfile.txt to newfile.txt)
+
+File Manipulation
+Some of the important tasks for which you use Linux command line are related to file manipulation. This includes moving files, copying file, removing file, etc. Discover some essential file management commands below:
+
+touch: Makes a new file that is empty. If the file already exists, the access and change timestamps are changed.
+
+Example: touch myfile.txt is a good example (creates an empty file named myfile.txt or updates its timestamps if it exists).
+
+cat: cat puts the contents of one or more files together and shows them (helpful for quickly reading files or putting them together).
+
+Example: cat file1.txt (displays the contents of file1.txt)
+
+cat files1.txt and 2.txt > combined.txt (combines the contents of file1.txt and file2.txt into combined.txt)
+
+cp: Makes a copy of a file or folder. Useful for making copies.
+
+Example: cp file1.txt file2.txt creates file2.txt if it doesn’t already exist or overwrites it if it does.
+
+mv: Moves a file or directory or changes its name. Used for organizing files and folders in order.
+
+Example: mv oldfile.txt newfile.txt (renames oldfile.txt to newfile.txt or moves oldfile.txt to a new location if a directory path is specified)
+
+rm: rm gets rid of a file. Use with care, because it’s hard to get back files that have been deleted.
+
+Example: rm myfile.txt (removes the file named myfile.txt)
+
+nano, vi, or vim: Text tools like nano, vi, or vim are used to modify files in the terminal. The exact text editors will depend on the Linux distribution.
+
+Example: nano myfile.txt (opens myfile.txt in the nano text editor for editing)
+
+Text Editors
+Let’s discuss some of the most common text editors which are used in Linux.
+
+nano: nano is a beginner-friendly, simple-to-use text editor with an intuitive interface. Some of its core features are as below:
+
+Open a file: nano (opens myfile.txt or creates it if it does not already exist)
+
+Change the file: Utilize the arrow keys for navigation and to begin composing or editing text.
+
+Save revisions: Enter after pressing Ctrl + O to validate the file name.
+
+Exit: If there are unsaved modifications, you will be prompted to save them when you press Ctrl + X.
+
+vi: A robust, modal text editor. It has a steeper learning curve, but offers advanced users more features and efficacy.
+
+Open a file: vi myfile.txt (opens or creates myfile.txt if it does not already exist).
+
+Enter edit mode: Press the letter i (you can now start editing the text)
+
+Save revisions: Press Esc, then type:w, followed by Enter (this writes the changes to the file)
+
+Exit: If there are unsaved modifications, use:q! to force quit without saving or:wq to save and quit.
+
+vim: A variant of vi with additional features, plugins, and enhanced syntax highlighting.
+
+Open a file: vim myfile.txt (opens or creates myfile.txt if it does not already exist).
+
+Enter edit mode: Press the letter i (you can now start editing the text)
+
+Save revisions: Press Esc, then type:w, followed by Enter (this writes the changes to the file)
+
+Exit: If there are unsaved modifications, use:q! to force quit without saving or:wq to save and quit.
+
+Permissions and Ownership
+File permissions in Linux determine who can read, write, and execute files and directories. Set permissions for three categories of users: the file’s owner (user), the group to which the owner belongs (group), and others (others). (world).
+
+The file permissions are represented by three characters: r (read), w (write), and x (execute). (execute). Each character corresponds to a distinct file operation that can be conducted. The permissions are grouped into sets of three, with each set representing the owner, group, and others in that order.
+
+The numbers 4, 2, and 1 represent read, write, and execute permissions, respectively, in octal notation for file permissions. So “rwxr-xr-x” can be represented as “755” in octal notation.
+
+You can modify file permissions using the chmod command. Here are some examples:
+
+Set read, write, and execute permissions for the owner and read and execute permissions for the group and others: chmod 755 text file
+
+Add the group’s write permission: chmod g+w file.txt
+
+Remove others’ execute permission: chmod o-x text file
+
+To change the ownership of a file, use the chown command. Here are some examples:
+
+Change a file’s ownership to a different user: chown username file.txt
+
+Change a file’s group to another group: chown:newgroup file.txt
+
+Change both the file’s owner and its group: chown newuser:newgroup file.txt
+
+Remember that you may need to use sudo if you lack the essential permissions to modify the target file or directory.
+
+Processes and Services
+In the Linux command line, you can view and manage running processes using commands like ps, kill, and systemctl. Here are some examples:
+
+ps: List running processes. The ps command displays information about active processes.
+
+Basic usage: ps
+
+Show all processes with full format listing: ps -ef
+
+Show processes for a specific user: ps -u username
+
+2. kill: Terminate a process. The kill command sends a signal to a process, usually to terminate it. You need to know the process ID (PID) to use kill.
+
+Basic usage (terminate a process by PID): kill 12345 (replace 12345 with the actual PID)
+
+Send a specific signal, e.g., gracefully stop a process (SIGTERM): kill -15 12345
+
+Forcefully stop a process (SIGKILL): kill -9 12345
+
+3. systemctl: Manage system services. The systemctl command is used to control systemd services. It allows you to start, stop, enable, and disable services.
+
+Start a service: sudo systemctl start servicename
+
+Stop a service: sudo systemctl stop servicename
+
+Restart a service: sudo systemctl restart servicename
+
+Enable a service to start at boot: sudo systemctl enable servicename
+
+Disable a service from starting at boot: sudo systemctl disable servicename
+
+Check the status of a service: sudo systemctl status servicename
+
+Environment Variables
+In Linux, environment variables store data and they can modify the running processes. They store system settings and application behavior. Note that usually the env variables are set in initialization files like .bashrc, .bash_profile, or .profile. Find below few examples of how to use export and printenv commands to view and manage env variables:
+
+1. Print environment variables. printenv displays environment variables. It displays all or selected variables.
+
+Display all environment variables: printenv
+
+View a specific env variable e.g. path variable: ‘PATH’: ‘printenv PATH’
+
+2. Export: Environment variables. Export sets environment variables. export sets the variable for the current shell session and its child processes.
+
+Set an environment variable, e.g., ‘MY_VARIABLE’: ‘export MY_VARIABLE=”my_value”’
+
+Add a new directory to the PATH variable: ‘export PATH=”$PATH:/new/directory”’
+
+Export commands in your shell initialization file (e.g., ~/.bashrc or ~/.profile) make environment variable changes persist between sessions. For example, to permanently set MY_VARIABLE, add below line to ~/.bashrc or ~/.profile: (Arduino)
+
+export MY_VARIABLE=”my_value”
+
+After adding the line, restart your shell or execute the command source ~/.bashrc or source ~/.profile to load the new variable. As mentioned previously, the changes made through export command are session-specific. Add export command to the shell initialization file to permanently set environment variables.
+
+Conclusion
+This article covered the Linux command line, a vital tool for system administrators, developers, and power users. We’ve covered commands for file system navigation, file manipulation, and file ownership and permissions. We also explained text editors to edit files from the command line and how to manage running processes, services, and environment variables for an efficient and flexible Linux experience.
+
+Whether you’re managing cloud servers, automating processes, or debugging cloud native applications, using the Linux command line is vital to improve your productivity. As you continue to use the Linux command line, you’ll discover its power and versatility, allowing you to tackle increasingly complex tasks and enhance your Linux skills. Given that a significant portion of application development occurs in the cloud and the majority of cloud VMs are Linux-based, mastering the Linux command line is essential for every IT professional.
